@@ -2,7 +2,7 @@
   "name": "neural-network-generator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https:///KIIIIT00.github.io/nn-generator",
+  "homepage": "https://kiiiit00.github.io//nn-generator",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
