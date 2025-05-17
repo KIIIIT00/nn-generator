@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { translation } from './translation';
 
 import {
   ImportCode,
@@ -11,6 +12,8 @@ import {
 } from './CodeTemplate';
 
 const NNGen = () => {
+  const [lang, setLang] = useState('en');
+  const t = translation[lang];
   // Initial settings
   const [layers, setLayers] = useState([
     { neurons: 64, activation: 'relu' },
@@ -46,6 +49,10 @@ const NNGen = () => {
   const datasetOptions = [
     'mnist', 'fashion_mnist', 'cifar10', 'custom'
   ];
+  // Language options
+  const toggleLang = () => {
+    setLang((prevLang) => (prevLang === 'en' ? 'ja' : 'en'));
+  };
 
   // Add a layer
   const addLayer = () => {
@@ -155,13 +162,19 @@ const NNGen = () => {
 
   return (
     <div className="flex flex-col p-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6 text-center">No-Code Neural Network Code Generator</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">{t.title}</h1>
+        <button 
+          onClick={toggleLang}
+          className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded"
+          >
+            {lang === 'en' ? '日本語' : 'English'}
+          </button>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         <div className="bg-gray-100 p-4 rounded-lg">
-          <h2 className="text-lg font-semibold mb-2">Dataset Settings</h2>
+          <h2 className="text-lg font-semibold mb-2">{t.datasetSetting}</h2>
           <div className="mb-2">
-            <label className="block text-sm mb-1">Dataset:</label>
+            <label className="block text-sm mb-1">{t.dataset}:</label>
             <select
               className="w-full p-2 border rounded"
               value={dataset}
@@ -175,7 +188,7 @@ const NNGen = () => {
           
           {dataset === 'custom' && (
             <div className="mb-2">
-              <label className="block text-sm mb-1">Input Shape (number of features):</label>
+              <label className="block text-sm mb-1">{t.inputShape}:</label>
               <input
                 type="number"
                 className="w-full p-2 border rounded"
@@ -188,9 +201,9 @@ const NNGen = () => {
         </div>
         
         <div className="bg-gray-100 p-4 rounded-lg">
-          <h2 className="text-lg font-semibold mb-2">Training Settings</h2>
+          <h2 className="text-lg font-semibold mb-2">{t.TrainingSetting}</h2>
           <div className="mb-2">
-            <label className="block text-sm mb-1">Optimizer:</label>
+            <label className="block text-sm mb-1">{t.optimizer}:</label>
             <select
               className="w-full p-2 border rounded"
               value={optimizer}
@@ -203,7 +216,7 @@ const NNGen = () => {
           </div>
           
           <div className="mb-2">
-            <label className="block text-sm mb-1">Learning Rate:</label>
+            <label className="block text-sm mb-1">{t.lr}:</label>
             <input
               type="number"
               className="w-full p-2 border rounded"
@@ -216,7 +229,7 @@ const NNGen = () => {
           </div>
           
           <div className="mb-2">
-            <label className="block text-sm mb-1">Loss Function:</label>
+            <label className="block text-sm mb-1">{t.loss}:</label>
             <select
               className="w-full p-2 border rounded"
               value={loss}
@@ -229,7 +242,7 @@ const NNGen = () => {
           </div>
           
           <div className="mb-2">
-            <label className="block text-sm mb-1">Epochs:</label>
+            <label className="block text-sm mb-1">{t.epochs}:</label>
             <input
               type="number"
               className="w-full p-2 border rounded"
@@ -240,7 +253,7 @@ const NNGen = () => {
           </div>
           
           <div className="mb-2">
-            <label className="block text-sm mb-1">Batch Size:</label>
+            <label className="block text-sm mb-1">{t.batchSize}:</label>
             <input
               type="number"
               className="w-full p-2 border rounded"
@@ -252,7 +265,7 @@ const NNGen = () => {
         </div>
         
         <div className="bg-gray-100 p-4 rounded-lg">
-          <h2 className="text-lg font-semibold mb-2">Additional Settings</h2>
+          <h2 className="text-lg font-semibold mb-2">{t.addSettings}</h2>
           <div className="mb-4">
             <label className="flex items-center">
               <input
@@ -261,7 +274,7 @@ const NNGen = () => {
                 onChange={(e) => setIncludeVisualization(e.target.checked)}
                 className="mr-2"
               />
-              <span>Include training visualization</span>
+              <span>{t.includeVisualization}</span>
             </label>
           </div>
         </div>
@@ -269,23 +282,23 @@ const NNGen = () => {
       
       <div className="bg-gray-100 p-4 rounded-lg mb-4">
         <div className="flex justify-between items-center mb-2">
-          <h2 className="text-lg font-semibold">Layer Settings</h2>
+          <h2 className="text-lg font-semibold">{t.layerSettings}</h2>
           <button 
             onClick={addLayer}
             className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
           >
-            Add Layer
+            {t.addLayer}
           </button>
         </div>
         
         {layers.map((layer, index) => (
           <div key={index} className="flex flex-wrap items-center mb-2 p-2 border rounded bg-white">
             <div className="mr-2 mb-2 md:mb-0">
-              <span className="font-medium">Layer {index + 1}:</span>
+              <span className="font-medium">{t.layer} {index + 1}:</span>
             </div>
             
             <div className="mr-2 mb-2 md:mb-0">
-              <label className="text-sm mr-1">Neurons:</label>
+              <label className="text-sm mr-1">{t.neurons}:</label>
               <input
                 type="number"
                 className="w-20 p-1 border rounded"
@@ -296,7 +309,7 @@ const NNGen = () => {
             </div>
             
             <div className="mr-2 mb-2 md:mb-0">
-              <label className="text-sm mr-1">Activation Function:</label>
+              <label className="text-sm mr-1">{t.activation}:</label>
               <select
                 className="p-1 border rounded"
                 value={layer.activation}
@@ -314,7 +327,7 @@ const NNGen = () => {
                   onClick={() => removeLayer(index)}
                   className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 text-sm"
                 >
-                  Delete
+                  {t.delete}
                 </button>
               )}
             </div>
@@ -327,25 +340,25 @@ const NNGen = () => {
           onClick={generateCode}
           className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full font-bold"
         >
-          Generate Python Code
+          {t.generateCode}
         </button>
       </div>
       
       <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-auto">
         <div className="flex justify-between items-center mb-2">
-          <h2 className="text-lg font-semibold">Generated Code</h2>
+          <h2 className="text-lg font-semibold">{t.generatedCode}</h2>
           <div className="flex">
             <button
               onClick={copyCode}
               className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 mr-2"
             >
-              Copy
+              {t.copy}
             </button>
             <button
               onClick={downloadCode}
               className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
             >
-              Download
+              {t.download}
             </button>
           </div>
         </div>
