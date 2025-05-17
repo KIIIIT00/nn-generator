@@ -4,7 +4,7 @@
 ## About
 Neural Network Code Generatorは，PyTorchベースのニューラルネットワークを構築するためのPythonコードを簡単に作成できるWebアプリケーションです．
 コーディングの知識がなくても，UIを使用して直感的にニューラルネットワークを設計し，すぐに使えるコードを生成できる．
-デモは，[Demo](https://kiiiit00.github.io/nn-generator/)です．
+デモは，[こちら](https://kiiiit00.github.io/nn-generator/)です．
 
 ## Features
 - **ノーコード設計**：プログラミング知識が不要でニューラルネットワークのコードを生成
