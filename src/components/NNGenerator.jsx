@@ -167,7 +167,7 @@ const NNGen = () => {
           onClick={toggleLang}
           className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded"
           >
-            {lang === 'en' ? '日本語' : 'English'}
+            {lang === 'en' ? 'Jp' : 'En'}
           </button>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
