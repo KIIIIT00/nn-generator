@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# No-Code Neural Network Code Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+Neural Network Code Generatorは，PyTorchベースのニューラルネットワークを構築するためのPythonコードを簡単に作成できるWebアプリケーションです．
+コーディングの知識がなくても，UIを使用して直感的にニューラルネットワークを設計し，すぐに使えるコードを生成できる．
 
-## Available Scripts
+## Features
+- **ノーコード設計**：プログラミング知識が不要でニューラルネットワークのコードを生成
+- **カスタマイズ可能**:レイヤー，ニューロン数，活性化関数などを自由に設定
+- **豊富なオプション**:様々なオプティマイザー，損失関数，データセットをサポート
+- **可視化コード**:トレーニング過程の可視化コードも生成可能
+- **二言語対応**:英語と日本語の切り替え可能
+- **コード出力**:生成したコードをコピーまたはファイルとしてダウンロード可能
 
-In the project directory, you can run:
+## Setup
+### Requirements
+- Node.js(v12.0.0以上)
+- npm(v6.0.0以上)
 
-### `npm start`
+### Installation
+```
+# clone the repocitory
+$ git clone https://github.com/KIIIIT00/nn-generator.git
+$ cd nn-generator
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Install dependencies
+$ npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Start the application
+$ npm start
+```
+ブラウザで http://localhost:3000 を開くと、アプリケーションが表示されます．
+## Usage
+1. データセット設定：使用するデータセットを選択（MNIST, Fashion MNIST, CIFAR-10, カスタム）
+2. トレーニング設定：オプティマイザー，学習率，損失関数，エポック数，バッチサイズを設定
+3. レイヤー設定：各レイヤーのニューロン数と活性化関数を設定（追加・削除も可能）
+4. 「Generate Code」ボタンをクリックしてコードを作成
+5. 生成されたコードはコピーまたはダウンロード可能
 
-### `npm test`
+## Techonologies
+- **フロントエンド**：React, TailwindCSS
+- **生成コード**: Python（Pytorch）
+- **デプロイ**:GitHub Pages
+## Project Structure
+```
+neural-network-generator/
+├── public/                  
+├── src/                     # ソースコード
+│   ├── components/          # Reactコンポネント
+│   │   ├── NNGenerator.jsx  
+│   │   ├── CodeTemplates.js 
+│   │   └── translation.js  
+│   ├── App.js               
+│   └── index.js             
+└── package.json             
+```
+## License
+このプロジェクトはMITライセンスの下で公開されています．詳しくはLICENSEファイルを参照してください
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contributing
+バグ報告や機能リクエストは，GitHubのIssuesに投稿してください．
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Note:
+生成されたコードを使用する場合は，PyTorchとその依存関係をインストールする必要があります．
+```
+$ pip install torch torchvision matplotlib numpy
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
