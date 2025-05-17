@@ -1,5 +1,5 @@
 # No-Code Neural Network Code Generator
-
+[![CodeQL Advanced](https://github.com/KIIIIT00/nn-generator/actions/workflows/codeql.yml/badge.svg)](https://github.com/KIIIIT00/nn-generator/actions/workflows/codeql.yml)
 ## About
 Neural Network Code Generatorは，PyTorchベースのニューラルネットワークを構築するためのPythonコードを簡単に作成できるWebアプリケーションです．
 コーディングの知識がなくても，UIを使用して直感的にニューラルネットワークを設計し，すぐに使えるコードを生成できる．
